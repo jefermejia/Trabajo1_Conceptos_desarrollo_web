@@ -1,0 +1,321 @@
+/* Variables de color para reutilizar la paleta en todo el sitio */
+:root{
+  --black: #0b0b0b;                 
+  --dark: #121212;                  
+  --green: #18e35f;                 
+  --green2:#0fb84a;                
+  --text: #ffffff;                  
+  --muted: #b8b8b8;                 
+
+  --white: #ffffff;                 
+  --whiteText:#111827;              
+  --border: rgba(0,0,0,0.10);       
+  --borderDark: rgba(255,255,255,0.18); 
+}
+
+*{ box-sizing: border-box; }
+
+/* Estilo base del documento */
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Barra de navegación con efecto semitransparente */
+.nav{
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px);                 
+  border-bottom: 1px solid var(--borderDark);
+}
+
+/* Distribución de enlaces en fila */
+.nav-links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 12px 0;
+  justify-content: center;
+}
+
+/* Estilo de enlaces */
+.nav a{
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+/* Efecto hover en los enlaces */
+.nav a:hover{
+  background: rgba(255,255,255,0.10);
+  color: var(--green);
+}
+
+/* Variante oscura para páginas internas */
+.nav-dark{
+  background: var(--black);
+  border-bottom: 1px solid var(--borderDark);
+}
+
+/* Contenedor central que limita el ancho para que se vea más profesional */
+.container{
+  width: min(980px, 90%);
+  margin: 0 auto;
+}
+
+/* Fondo del index: combina una capa oscura + una imagen de fondo */
+.theme-home{
+  color: var(--text);
+  background: var(--black);
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.78), rgba(0,0,0,0.82)),
+    url("img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+}
+
+/* Hero de la portada (encabezado principal) */
+.hero{
+  position: relative;
+  padding: 90px 0 70px;
+  text-align: center;
+  color: var(--text);
+}
+
+/* Imagen de portada del hero */
+.hero-bg{
+  background-image: url("img/portada.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Capa oscura encima de la portada para mejorar legibilidad del texto */
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.70), rgba(0,0,0,0.35));
+}
+
+.hero-content{
+  position: relative;
+  z-index: 1;
+}
+
+/* Título principal responsivo */
+.hero h1{
+  margin: 0;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.1;
+}
+
+/* Subtítulo */
+.subtitle{
+  margin: 12px auto 0;
+  max-width: 78ch;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Botón principal (enlaces estilo botón) */
+.btn-primary{
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--green), var(--green2));
+  color: #000;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.btn-primary:hover{ opacity: 0.92; }
+
+/* Páginas internas: fondo claro */
+.theme-inner{
+  background: #f4f6f8;
+  color: var(--whiteText);
+}
+
+/* Encabezado interno (altura del header) */
+.page-header{
+  padding: 34px 0 22px;
+}
+
+/* Variante oscura del encabezado interno */
+.page-header-dark{
+  background: var(--black);
+  color: var(--text);
+  border-bottom: 1px solid var(--borderDark);
+}
+
+/* Espaciado del contenido de páginas internas */
+.section-white{
+  padding: 18px 0 8px;
+}
+
+/* Espaciado del contenido del index */
+.section-dark{
+  padding: 28px 0 14px;
+}
+
+/* Encabezado interno con imagen de fondo (portada2.jpg) */
+.page-hero{
+  position: relative;
+  background-image: url("img/portada2.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--text);
+}
+
+/* Overlay oscuro para que el texto se lea sobre la imagen */
+.page-hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55));
+}
+
+.page-hero > .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* Tarjetas: base */
+.card{
+  border-radius: 14px;
+  padding: 20px;
+  margin: 18px 0;
+}
+
+/* Tarjetas claras para páginas internas */
+.card-white{
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+
+/* Tarjetas oscuras para index (transparencia para ver el fondo) */
+.theme-home .card{
+  background: rgba(0,0,0,0.50);
+  border: 1px solid var(--borderDark);
+  color: var(--text);
+  backdrop-filter: blur(3px); /* efecto moderno (opcional) */
+}
+
+/* Lista con sangría */
+.list{ padding-left: 18px; }
+
+/* Grid: organiza productos en 3 columnas */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+/* Producto (tarjeta) */
+.product{
+  border-radius: 14px;
+  padding: 14px;
+}
+
+/* Producto en páginas internas (fondo blanco) */
+.product-white{
+  border: 1px solid var(--border);
+  background: #ffffff;
+}
+
+/* Producto en index (fondo oscuro y borde claro) */
+.theme-home .product{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--borderDark);
+}
+
+/* Precio resaltado */
+.price{
+  font-weight: 900;
+  color: var(--green2);
+}
+
+/* Imagen del producto: se adapta sin deformarse */
+.product-img{
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  border: 1px solid var(--border);
+  object-fit: contain;
+  background: #ffffff;
+  display: block;
+}
+
+/* Imagen alta para ver camiseta completa */
+.product-img-tall{
+  height: 240px;
+  padding: 8px;
+}
+
+/* Botón “Comprar” */
+.btn{
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--green), var(--green2));
+  font-weight: 900;
+  cursor: pointer;
+  color: #000;
+}
+
+.btn:hover{ opacity: 0.92; }
+
+/* Texto auxiliar + enlaces */
+.callout{ color: var(--muted); }
+.callout a{ color: var(--green); font-weight: 800; text-decoration: none; }
+.callout a:hover{ text-decoration: underline; }
+
+/* Footer base */
+.footer{
+  padding: 18px 0;
+  margin-top: 26px;
+}
+
+/* Footer oscuro */
+.footer-dark{
+  background: var(--black);
+  color: var(--text);
+  border-top: 1px solid var(--borderDark);
+}
+
+/* Distribución del footer en dos columnas */
+.footer-grid{
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Estilo de enlace del footer */
+.footer-link{
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.footer-link:hover{ text-decoration: underline; }
+
+/* Texto secundario */
+.muted{ color: var(--muted); }
+
+/* Responsivo: en pantallas medianas pasa a 2 columnas */
+@media (max-width: 900px){
+  .grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Responsivo: en celular pasa a 1 columna */
+@media (max-width: 600px){
+  .grid{ grid-template-columns: 1fr; }
+}
+
+
